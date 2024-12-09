@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+  <style>
+    .square {
+      height: 100px;
+      width: 900px;
+      background-color: #f0f0f0;
+      display: flex;
+      justify-content: center;
+      align-self: center;
+      align-items: center;
+      text-align: center;
+      border: 4px solid #333;
+      position: relative;
+      padding: 20px;
+      border-color: #555555;
+    }
+
+    .shaped-text {
+      font-size: 20px;
+      text-align: center;
+      font-weight: bold;
+      font-family: "Familjen Grotesk", sans-serif;
+      color: #333;
+      transform-origin: center;
+      line-height: 1.4;
+    }
+  </style>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Facts</title>
+  <link href="/static/fact.css" rel="stylesheet" type="text/css"/>
+</head>
+</head> 
+
+<body class="sect-home">
+  <header class="navbar">
+    <nav class="top">
+       <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/future">Future</a></li>
+        <li><a href="/past">Past</a></li>
+        <li><a href="/present">Present</a></li>
+        <li><a href="/solution">Solutions</a></li>
+        <li><a href="/fact">Facts</a></li>
+       </ul>
+    </nav>
+  </header>
+<br></br>
+<br></br>
+<br></br>
+
+    <h1 style="text-align: center;">Data Tracker</h1>
+
+    <span id="microplasticsData" class="data-section" style="margin: 20px;">
+      <h2>Microplastics in the Ocean (Generates annually)</h2>
+      <p id="microplasticsText">Loading...</p>
+    </span>
+
+    <body>
+      <br></br>
+      <br></br>
+      <h1>More Facts:</h1>
+      <br></br>
+          <span class="square">
+            <span class="shaped-text">Plastic pollution: 8 million tons of plastic enter the oceans annually, harming marine life.</span>
+          </span>
+          <br>
+        </br>
+          <span class="square">
+            <span class="shaped-text">Overfishing: 30% of global fish stocks are overexploited. Supporting sustainable fishing helps protect ocean biodiversity.</span>
+          </span>
+          <br>
+        </br>
+          <span class="square">
+            <span class="shaped-text">Marine protected areas: MPAs help restore marine life by providing safe spaces away from human activity.</span>
+          </span>
+          <br>
+        </br>
+          <span class="square">
+            <span class="shaped-text">Coral reefs: Rising ocean temperatures harm reefs. Reducing carbon emissions can protect these vital ecosystems.</span>
+            </span>
+            <br>
+          </br>
+          <span class="square">
+            <span class="shaped-text">Coastal ecosystems: Seagrasses and mangroves sequester carbon and protect coastlines. Preserving them is crucial.</span>
+            </span>
+            <br>
+          </br>
+          <span class="square">
+            <span class="shaped-text">Blue carbon: Coastal habitats store carbon. Protecting them enhances the ocean’s role in carbon sequestration.</span>
+            </span>
+            <br>
+          </br>
+            <span class="square">
+              <span class="shaped-text">The ocean covers 71% of Earth's surface, yet we've explored only about 5% of it, leaving vast unknowns.</span>
+              </span>
+              <br>
+            </br>
+              <span class="square">
+                <span class="shaped-text">The ocean regulates weather: Ocean currents play a key role in distributing heat around the globe, affecting weather patterns, including hurricanes and El Niño events.</span>
+                </span>
+                <br>
+              </br>
+                <span class="square">
+                  <span class="shaped-text">The Pacific Ocean is shrinking: The Pacific Ocean is getting smaller as the Atlantic is expanding due to tectonic plate movement.</span>
+                  </span>
+                  <br>
+                </br>
+                  <span class="square">
+                    <span class="shaped-text">Tsunamis travel at incredible speeds: In deep water, they can travel up to 500-800 km/h (310-500 mph), faster than a jet plane!</span>
+                    </span>
+                    <br>
+                  </br>
+                    <span class="square">
+                      <span class="shaped-text">The ocean is warmer than you think: Even in deep areas, the ocean stores heat and has absorbed over 90% of the Earth's excess heat from climate change.</span>
+                      </span>
+                      <br>
+                    </br>
+                      <span class="square">
+                        <span class="shaped-text">Underwater volcanoes: The ocean floor has more than 100,000 active underwater volcanoes, which often create new land.</span>
+                        </span>
+     
+        
+    </body>
+   
+<!-- Assisted by AI below -->
+    <script>
+      const currentYear = new Date().getFullYear();
+
+      const microplasticsCsvUrl = 'https://ourworldindata.org/grapher/microplastics-in-ocean.csv?v=1&csvType=filtered&useColumnShortNames=true';
+      
+
+      function parseCSV(csv) {
+        const rows = csv.split('\n');
+        const headers = rows[0].split(',');
+        const data = rows.slice(1).map(row => {
+          const values = row.split(',');
+          return headers.reduce((acc, header, index) => {
+            acc[header.trim()] = values[index]?.trim();
+            return acc;
+          }, {});
+        });
+        return data.filter(row => Object.keys(row).length > 1);
+      }
+
+      function findDataForYear(data, year, key) {
+        const row = data.find(item => item['Year'] == year);
+        if (row && row[key]) {
+          return row[key];
+        }
+        return null; 
+      }
+    
+      async function fetchMicroplastics() {
+        try {
+          const response = await fetch(microplasticsCsvUrl);
+          const csvData = await response.text();
+          const data = parseCSV(csvData);
+          const value = findDataForYear(data, currentYear, 'Accumulated ocean plastic: Microplastics (<0.5cm)');
+
+            if (value) {
+              document.getElementById('microplasticsText').textContent =
+                `As of this year, ${currentYear}, there are approximately ${value} units of microplastics in the ocean.`;
+            } else {
+              document.getElementById('microplasticsText').textContent = `No data available for ${currentYear}.`;
+            }
+          } catch (error) {
+            console.error('Error fetching microplastics data:', error);
+            document.getElementById('microplasticsText').textContent = 'Failed to load data.';
+          }
+      }
+
+      fetchMicroplastics();
+
+    </script>
+  </body>
+</html>

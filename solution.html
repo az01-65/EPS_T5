@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:ital,wght@0,400..700;1,400..700&family=Oswald:wght@200..700&display=swap">
+    <title>Solution</title>
+    <link href="/static/solution.css" rel="stylesheet" type="text/css"/>
+</head> 
+
+<body class="sect-home">
+  <header class="navbar">
+    <div class="logo">
+      <a href="#">
+        <img src="#">
+      </a>
+    </div>
+    <nav class="top">
+       <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/future">Future</a></li>
+        <li><a href="/past">Past</a></li>
+        <li><a href="/present">Present</a></li>
+        <li><a href="/solution">Solutions</a></li>
+        <li><a href="/fact">Facts</a></li>
+       </ul>
+    </nav>
+  </header>
+
+  <p class="inner-sect-home" id="text"><b>How many plastic bags do you use per week?</b></p>
+  <br><br><br>
+    <form id="form" onsubmit="return false;">
+        <input type="text" id="userInput" class="text-input">
+        <input type="submit" onclick="othername();" class="submit-btn" id="button">
+    </form>
+    
+    <p id="print" class="appear"></p>
+
+    <hr>
+    <p id="textpos">See what you can do today to help! Each day focus on a goal until you practice each of these healthy habits.</p>
+
+    <button onclick="selectRandom();" id="ocean" class="submit-btn">Let's fix the oceans!</button>
+
+    <p id="selected" class="popup"></p>
+
+    <script>
+    function othername() {
+        var input = document.getElementById("userInput").value;
+        document.getElementById("print").innerHTML = "By switching to reusable bags, you could have prevented " + (input*1.58) + " kilograms of CO2 from being emitted, or " + (input*82.39) + " kg in a year. Note that this amount could take hundreds of years to break down, so start using reusable bags to save marine ecosystems!";
+    }
+
+    function selectRandom() {
+    const randomSolutions = ["Try to implement correct recycling guidelines starting today.", "Dispose of all your trash - don't litter.", "Look for ocean-friendly products, especially ones free of harsh chemicals to the environment.", "Save energy to lower the carbon emissions that contribute to ocean acidification.", "Ask about seafood origins and avoid seafood with overfished species.", "Don't waste food! Plan your meals.", "Go to beaches near you and help clean them up.", "Don't waste any of that precious water!", "Be careful with balloons, don't let them fly into the air.", "Educate and advocate for change, the more people there are, the easier it will be to fix the issue.", "Don't overuse fertilizer to prevent nutrient runoff into oceans.", "Pick up your pet's poop!", "Try to volunteer for an organization today.", "Offset any carbon emissions by contributing to organizations.", "Avoid any harmful products, read the labels!", "Try investing in renewable energy.", "Wash cars at car washes instead of at home to prevent soapy water to drain into storm sewers."]
+
+    const randomItem = randomSolutions[Math.floor(Math.random() * randomSolutions.length)]; // AI used for this line
+    document.getElementById("selected").innerHTML = randomItem;
+};
+    
+
+    </script>
+
+</body>
+
+</html>
+    

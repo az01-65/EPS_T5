@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:ital,wght@0,400..700;1,400..700&family=Oswald:wght@200..700&display=swap">
+  <title>Replit</title>
+  <link href="/static/present.css" rel="stylesheet" type="text/css" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center; /* Center content vertically */
+      align-items: center; /* Center content horizontally */
+      height: 100vh; /* Full viewport height */
+      background-color: black;
+      color: white;
+    }
+
+    .stats {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .stats div {
+      margin: 10px;
+    }
+
+    canvas {
+      display: block;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    nav ul li {
+      display: inline;
+      margin: 0 10px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+    }
+  </style>
+</head>
+
+<body>
+  <header class="navbar">
+    <nav class="top">
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/future">Future</a></li>
+        <li><a href="/past">Past</a></li>
+        <li><a href="/present">Present</a></li>
+        <li><a href="/solution">Solutions</a></li>
+        <li><a href="/fact">Facts</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="stats">
+    <div>
+      <span class="counter" data-target="35">35%</span>
+      <h4>USA recycling rate (2024)</h4>
+    </div>
+    <div>
+      <span class="counter" data-target="100">100+</span>
+      <h4>Organizations working on ocean conservation</h4>
+    </div>
+  </div>
+
+  <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
+
+  <!-- Include Chart.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+  <script>
+    // Chart.js Doughnut Chart
+    var xValues = ["Recycled", "Landfilled", "Incinerated", "Leaking into Oceans"];
+    var yValues = [9, 79, 12, 0.5];
+    var barColors = [
+      "#999999",
+      "#777777",
+      "#555555",
+      "#ffffff"
+    ];
+
+    new Chart("myChart", {
+      type: "doughnut",
+      data: {
+        labels: xValues,
+        datasets: [{
+          backgroundColor: barColors,
+          borderWidth: 0, // Removes the white borders between slices
+          data: yValues
+        }]
+      },
+      options: {
+        title: {
+          display: true,
+          text: "Plastic Waste Distribution",
+          fontColor: "white" // Adjusts title color for visibility on black background
+        },
+        legend: {
+          labels: {
+            fontColor: "white" // Adjusts legend text color for better contrast
+          }
+        }
+      }
+    });
+  </script>
+  <script src="/static/script.js"></script>
+</body>
+
+</html>

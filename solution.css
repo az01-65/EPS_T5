@@ -1,0 +1,201 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: "Familjen Grotesk", sans-serif;
+  background-color: black;
+}
+
+ul {
+  list-style: none;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-transform: uppercase;
+  height: 100px;
+  padding: 0 30px;
+}
+
+.top ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.top ul li {
+  position: relative;
+  margin-right: 20px;
+  padding-bottom: 2px;
+}
+
+.top li {
+  margin-left: 30px;
+}
+
+.top li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.top ul li a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background: #fff;
+  transform: scaleX(0);
+  transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+  transform-origin: right center;
+}
+
+.logo {
+  width: 210px;
+  height: auto;
+}
+
+.logo img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.top ul li a:hover::after {
+  transform: scaleX(1);
+}
+
+.sect-home {
+    position: absolute;
+    background-image: url('/static/img/sky.jpeg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+.inner-sect-home {
+  text-align: center;
+  text-transform: uppercase;
+  color: #000000;
+  font-size: xx-large;
+}
+
+#text {
+    position: absolute;
+    top: 150px; left: 275px;
+}
+
+.appear {
+    position: absolute;
+    top: 330px; left: 100px;
+    margin-left: 200px;
+    margin-right: 300px;
+    text-align: center;
+}
+
+.sect-home::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3); 
+  z-index: 1;
+  pointer-events: none;
+}
+
+.inner-sect-home {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  text-transform: uppercase;
+  color: #000000;
+  font-size: xx-large;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px; /* Space between the input and button */
+  }
+  
+  /* Text input styling */
+  .text-input {
+    width: 300px;
+    padding: 10px 15px;
+    font-size: 16px;
+    border: 2px solid #ccc; /* Light gray border */
+    border-radius: 5px; /* Rounded corners */
+    outline: none;
+    transition: border-color 0.3s ease;
+    position: absolute;
+    top: 220px; left: 490px;
+  }
+  
+  .text-input:focus {
+    border-color: #007bff; /* Blue border on focus */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  }
+  
+  /* Submit button styling */
+  .submit-btn {
+    background-color: #000000; /* Blue background */
+    color: white; /* White text */
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .submit-btn:hover {
+    background-color: #60666d; /* Darker blue on hover */
+  }
+  
+  .submit-btn:active {
+    background-color: #ffffff; /* Even darker blue on click */
+  }
+
+  #ocean {
+    position: absolute;
+    top: 480px; left: 550px;
+  }
+
+  #textpos {
+    position: absolute;
+    top: 430px; left: 275px;
+  }
+
+  .popup {
+    position: absolute;
+    top: 550px; left: 400px;
+    text-align: center;
+  }
+
+  #button {
+    position: absolute;
+    top: 275px; left: 590px;
+  }

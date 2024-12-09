@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <nav class="top">
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/future">Future</a></li>
+      <li><a href="/past">Past</a></li>
+      <li><a href="/present">Present</a></li>
+      <li><a href="/solution">Solutions</a></li>
+      <li><a href="/fact">Facts</a></li>
+    </ul>
+ </nav>
+ <link href="/static/past.css" rel="stylesheet" type="text/css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daily Incrementing Counter</title>
+  <style>
+   
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background: #e0f7fa;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      margin-top: 20vh;
+    }
+    h1 {
+      font-size: 2.5em;
+      color: #00796b;
+    }
+    p {
+      font-size: 4em;
+      font-weight: bold;
+      color: #004d40;
+    }
+  </style>
+</head>
+<body>
+  <h1>How many days has it been since...</h1>
+  <div class="container">
+    <h1>🌊The latest major oil spill, in the Gulf of Mexico</h1>
+    <p><p id="counter">hi</p></p>
+    <h1>🌊The last climate change induced tsunami, in the Dickson Fjord of east greenland🌊</h1>
+    <p><p id="counter2">449</p></p>
+    <h1>Degrees in Celsius rising per year since 1880</h1>
+    <p>0.2°C</p>
+    <h1>Amount of inches risen in ocean since 2000</h1>
+    <p>3.2 Inches</p>
+    
+    
+  </div>
+>
+  <script>
+
+    const baseNumber = 0; 
+    const startDate = new Date('2010-04-20');
+    const basenumber2 = 0;
+    const startDate2 = new Date('2023-09-16')
+    //used ai for the math.floor 
+    function updateCounter() {
+      const today = new Date();
+      const timeDifference = today - startDate;
+      const daysPassed = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+      const currentCounter = baseNumber + daysPassed;
+
+      
+      document.getElementById('counter').textContent = currentCounter;
+    }
+    //ai stopped here
+    function updateCounter2() {
+      const today = new Date();
+      const timeDifference = today - startDate2;
+      const daysPassed = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+      const currentCounter2 = baseNumber2 + daysPassed;
+
+      
+      document.getElementById('counter2').textContent = currentCounter2;  
+    }
+    updateCounter();
+    updateCounter2();
+  </script>
+</body>
+</html>
