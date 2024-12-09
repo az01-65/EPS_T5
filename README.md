@@ -1,0 +1,4 @@
+PROMPT: Climate action dashboard with multiple features sourcing from weather and climate websites such as NASA and NOAA: Our general theme and motive is to provide an incentive for action: with impending deadlines for action as well as data on our dire state of the world climate, we urge our users to take action now.
+
+DESCRIPTION
+Our website consists of 5 key pages (plus a homepage) centered around our theme. We provide time-oriented data from the past and the future (reminding us of how much progress left until we will reach an irreversible degree of climate change), quantity-oriented data (such as square feet of plastic in the Great Pacific Garbage Patch), and finally, human solutions to loss of marine life and environment and current preferences of the general public on those solutions to climate change.
